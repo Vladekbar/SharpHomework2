@@ -2,16 +2,26 @@
 
 Console.Clear();
 Console.WriteLine("Введите число:");
-int number = int.Parse(Console.ReadLine());
+string number = (Console.ReadLine());
 
-if (number < 100)
+int number2 = int.Parse(number);
+int thirdDigit = number2;
+if (thirdDigit > 999)
 {
-    Console.WriteLine($"У числа {number} третья цифра отстутсвует. ");
+    while (thirdDigit > 999)
+    {
+        thirdDigit = thirdDigit / 10;
+    }
+    Console.WriteLine($"Третья цифра числа {number2} -> {thirdDigit % 10}");
 }
 else
 {
-    int digitCount = Convert.ToInt32(number.ToString().Length - 2);
-    int digit = Convert.ToInt32(number % (Math.Pow(10, digitCount)));
-    int thirdDigit = Convert.ToInt32(digit / (Math.Pow(10, digitCount-1)));
-    Console.WriteLine(thirdDigit);
+    if (number2 > 99)
+    {
+        Console.WriteLine($"Третья цифра числа {number2} -> {thirdDigit % 10}");
+    }
+    else
+    {
+        Console.WriteLine($"Третья цифра числа {number2} -> отсутсвует");
+    }
 }
